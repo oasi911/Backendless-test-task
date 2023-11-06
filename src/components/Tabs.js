@@ -1,5 +1,5 @@
 import { React } from "react";
-import { useLoaderData, Link } from "react-router-dom";
+import { useLoaderData, Link, Outlet } from "react-router-dom";
 import css from "./Tabs.module.css";
 
 export function loader() {
@@ -22,17 +22,22 @@ const Tabs = () => {
   const tabs = useLoaderData();
 
   return (
-    <div className={css.container}>
-      <nav>
-        {tabs
-          .sort((a, b) => a.order - b.order)
-          .map((tab) => (
-            <Link className={css.button} key={tab.order} to={tab.id}>
-              {tab.title}
-            </Link>
-          ))}
-      </nav>
-    </div>
+    <>
+      <div className={css.container}>
+        <nav>
+          {tabs
+            .sort((a, b) => a.order - b.order)
+            .map((tab) => (
+              <Link className={css.button} key={tab.order} to={tab.id}>
+                {tab.title}
+              </Link>
+            ))}
+        </nav>
+      </div>
+      <div className={css.outlet}>
+        <Outlet />
+      </div>
+    </>
   );
 };
 
