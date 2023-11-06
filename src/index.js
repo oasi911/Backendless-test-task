@@ -5,12 +5,27 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Tabs from "./components/Tabs";
 import { loader } from "./components/Tabs";
+import DummyTable from "./tabs/dummyTable";
+import DummyChart from "./tabs/dummyChart";
+import DummyList from "./tabs/dummyList";
 
 const router = createBrowserRouter([
   {
     path: "/",
     loader: loader,
     element: <Tabs />,
+  },
+  {
+    path: "/dummyTable",
+    element: <DummyTable />,
+  },
+  {
+    path: "/dummyChart",
+    element: <DummyChart />,
+  },
+  {
+    path: "/dummyList",
+    element: <DummyList />,
   },
 ]);
 
