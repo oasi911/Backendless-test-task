@@ -1,13 +1,21 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Tabs from "./components/Tabs";
 import { loader } from "./components/Tabs";
-import DummyTable from "./tabs/dummyTable";
-import DummyChart from "./tabs/dummyChart";
-import DummyList from "./tabs/dummyList";
+
+const lazyLoad = (Component) => (props) =>
+  (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Component {...props} />
+    </Suspense>
+  );
+
+const DummyTable = lazyLoad(React.lazy(() => import("./tabs/dummyTable")));
+const DummyChart = lazyLoad(React.lazy(() => import("./tabs/dummyChart")));
+const DummyList = lazyLoad(React.lazy(() => import("./tabs/dummyList")));
 
 const router = createBrowserRouter([
   {
