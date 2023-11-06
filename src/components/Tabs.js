@@ -3,7 +3,7 @@ import { useLoaderData, Link, Outlet } from "react-router-dom";
 import css from "./Tabs.module.css";
 
 export function loader() {
-  return fetch("/tabs.json")
+  return fetch(`${process.env.PUBLIC_URL}/tabs.json`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response wasn't ok");
