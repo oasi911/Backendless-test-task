@@ -14,18 +14,20 @@ const router = createBrowserRouter([
     path: "/",
     loader: loader,
     element: <Tabs />,
-  },
-  {
-    path: "/dummyTable",
-    element: <DummyTable />,
-  },
-  {
-    path: "/dummyChart",
-    element: <DummyChart />,
-  },
-  {
-    path: "/dummyList",
-    element: <DummyList />,
+    children: [
+      {
+        path: "/dummyTable",
+        element: <DummyTable />,
+      },
+      {
+        path: "/dummyChart",
+        element: <DummyChart />,
+      },
+      {
+        path: "/dummyList",
+        element: <DummyList />,
+      },
+    ],
   },
 ]);
 
