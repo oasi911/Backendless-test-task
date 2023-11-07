@@ -19,20 +19,20 @@ const DummyList = lazyLoad(React.lazy(() => import("./tabs/dummyList")));
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: `${process.env.PUBLIC_URL}/`,
     loader: loader,
     element: <Tabs />,
     children: [
       {
-        path: "/dummyTable",
+        path: `${process.env.PUBLIC_URL}/dummyTable`,
         element: <DummyTable />,
       },
       {
-        path: "/dummyChart",
+        path: `${process.env.PUBLIC_URL}/dummyChart`,
         element: <DummyChart />,
       },
       {
-        path: "/dummyList",
+        path: `${process.env.PUBLIC_URL}/dummyList`,
         element: <DummyList />,
       },
     ],
