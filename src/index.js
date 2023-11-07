@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import Tabs from "./components/Tabs";
 import { loader } from "./components/Tabs";
 
@@ -17,7 +17,7 @@ const DummyTable = lazyLoad(React.lazy(() => import("./tabs/dummyTable")));
 const DummyChart = lazyLoad(React.lazy(() => import("./tabs/dummyChart")));
 const DummyList = lazyLoad(React.lazy(() => import("./tabs/dummyList")));
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: `${process.env.PUBLIC_URL}/`,
     loader: loader,
